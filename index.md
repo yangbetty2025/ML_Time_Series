@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Time Series Modeling in Machine Learning
 ---
 
 # What is a time series?
