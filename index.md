@@ -3,9 +3,10 @@ layout: default
 ---
 # Time Series Modeling in Machine Learning
 
+***
+
 # What is a time series?
 A time series is a sequence of data points that are recorded over **consistent intervals** of time. Examples include hourly or daily temperature data, monthly credit card charges, and the annual GDP growth rates. <br>
-<br>
 
 ## Key characteristics
 - **Trend** <br>
@@ -13,6 +14,7 @@ A time series is a sequence of data points that are recorded over **consistent i
 - **Cyclic** <br>
 - **Noise / randomn component** <br>
 - **Stationarity** <br>
+<br>
 
  ![ts_decomposition](assets/css/ts_decomposition.png)<br>
  <sub> Source: [Seasonal Decomposition of Your Time-Series](http://alkaline-ml.com/pmdarima/1.8.1/auto_examples/arima/example_seasonal_decomposition.html) </sub>
@@ -22,9 +24,9 @@ A time series is a sequence of data points that are recorded over **consistent i
 
 # Why use a time series model?
 
-# What makes time series different?
+# What makes time series different from "regular" data?
 
-# Ways to model time series data in machine learning
+# Ways to model time series in machine learning
 - **Traditional methods**
 - **Newer methods**
 
