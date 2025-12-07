@@ -1,8 +1,7 @@
 ---
 layout: default
-title: Time Series Modeling in Machine Learning
 ---
-
+# Time Series Modeling in Machine Learning
 # What is a time series?
 A time series is a sequence of data points that are recorded over **consistent intervals** of time. Examples include hourly or daily temperature data, monthly credit card charges, and the annual GDP growth rates. <br>
 <br>
