@@ -57,14 +57,12 @@ Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machin
 
 ## Advantages of LSTM models
 
-## Results
-
-
-<br>
-
-## Good for temperatures but not for Covid cases?
+## LSTM modeling results comparison
+### Good for temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
+ ![Temp_vs_Covid_Cases](assets/css/LSTM_Comparison.png)<br>
+ <br>
 
 ## Reasons for the poor performance
 - **Dataset is too small** (only 336 observations). The five-layer LSTM model used in this study has over 17,425 parameters, and a general rule of thumb for neural networks is to have at least 10 to 20 samples per parameter.<br>
