@@ -4,12 +4,15 @@ layout: default
 
 # What is a time series?
 A time series is a sequence of data points that are recorded over **consistent intervals** of time. Examples include hourly or daily temperature data, monthly credit card charges, and the annual GDP growth rates. <br>
+<br>
+Time series modeling is frequently used in **finance** (e.g., stock market forecasting), **economics** (e.g., inflation or CPI projections), **business** (e.g., monthly sales or inventory analysis), **climatology** (e.g. El Niño cycles and global warming trend detection), **health** (e.g. patient vitals or disease outbreak monitoring), and many fields in **science**. <br>
+<br>
 
 ## Key characteristics
 - **Trend** <br>
 - **Seasonality** <br>
 - **Cyclic** <br>
-- **Noise / randomn component** <br>
+- **Noise / randomn variation** <br>
 - **Stationarity** <br>
 <br>
 
@@ -17,14 +20,34 @@ A time series is a sequence of data points that are recorded over **consistent i
  <sub> Source: [Seasonal Decomposition of Your Time-Series](http://alkaline-ml.com/pmdarima/1.8.1/auto_examples/arima/example_seasonal_decomposition.html) </sub>
  <br>
 
+## Common issues with time series modeling
+- **Missing values and random fluctuations** require data imputation or noise filtering. <br>
+- **Non-stationarity and heteroskedasticity** require transformations like differencing or decomposition for the former, and log transformation for the latter.  <br>
+- **Structural breaks** or regime changes when there are sudden shifts in the underlying pattern. <br>
+<br>
 <br>
 
-# Why use a time series model?
+# Examples of helpful uses for our everyday life
+- **Forecasting** of future events and trends allows for better planning and more efficient risk management or mitigation strategies. For instance, use of weather and traffic forecasts to plan trips.<br>
+- **Pattern recognition** helps earlier diagnosis and focused treatment. <br>
+- **Anomaly detection** uncovers fradulent credit card charges or suspicious bank activities. <br>
+<br>
+<br>
 
 # What makes time series different from "regular" data?
+The reason why <br>
+
+|                      | Time Series       | "Regular" Data       |
+|:---------------------|:------------------|:----------------------
+| Order & Time         | Essential         | Unimportant usually  |   
+| Data Point Dependency| Dependent         | Independence assumed |
+| Purpose              | Forecasting       | Understanding        |
+| Analysis             | Specialized models| Standard regression  | 
+<br>
+<br>
 
 # Ways to model time series in machine learning
-- **Traditional methods**
+- **Traditional methods** include 
 - **Newer methods**
 
 # Case study: predicting Covid-19 cases in Taiwan
@@ -95,9 +118,9 @@ Compared to its performance on the temperature dataset, the LSTM model completed
  <br>
 
 # Fine-tuning a pretrained model
-Conceptually, one can copy and paste the small dataset, say, 100 times to create artificial repeated patterns and see if the model does any better. <br>
+Conceptually, one can copy and paste the small dataset, say, 100 times to create artificial repeated patterns and see if the model does any better. However, this can create other modeling and analysis issues. <br>
 <br>
-But what if there is already a model that was pretrained on millions of samples? Would the pretrained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
+So, what if there is already a model that was pretrained on millions of samples? Would the pretrained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
 <br>
 <br>
 
