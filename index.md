@@ -37,14 +37,14 @@ A time series is a sequence of data points that are recorded over **consistent i
 <br>
 - Shortly after, there were sharp increases in deaths and cases. Three epidemic waves were observed from 4/17/2022 to 3/18/2023, each seemed “flatter” than the previous.<br>
 <br>
- ![Covid_Waves_Taiwan](/assets/css/Covid_Waves_Taiwan.png)<br>
+![Covid_Waves_Taiwan](/assets/css/Covid_Waves_Taiwan.png)<br>
 <br>
 <br>
 
 ## A tale of two countries
 Every country has a different epidemic curve for Covid-19 due to different values, policies, preventive measures, availability of vaccines, etc. The juxtaposition below is a visual representation of said differences. <br>
 <br>
- ![US_vs_Taiwan](assets/css/US_vs_Taiwan.png)<br>
+![US_vs_Taiwan](assets/css/US_vs_Taiwan.png)<br>
  <br>
 
 ## The research question
@@ -56,11 +56,29 @@ Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machin
 ## What is a LSTM model?
 
 ## Advantages of LSTM models
-<br>
- ![Temp_vs_Covid_Cases](assets/css/LSTM_Comparison.png)<br>
- <br>
+
 
 ## LSTM modeling results comparison
+Due to the magnitude of Covid cases, the daily totals were "normalized" to range between 0 and 10 by dividing by 10,000 before training. The predicted results were then multiplied by 10,000 to get back to the original unit (number of cases).<be>
+
+To test the LSTM model, two different datasets were used for training: daily temperatures of Park Slope from 2010-01-01 to 2025-09-30, and daily Covid cases in Taiwan from 2022-04-17 to 2023-03-18. <br>
+<br> 
+Below is a comparison table of the two datasets on their respective sample size, range of values, training specifications, and minimum difference between predicted and actual values as a percentage of the actual value.<br>
+<br>
+
+|                    | Temperature  | Covid Cases|
+|:-------------------|:-------------|:-----------|
+| No. of Samples     | 5,752        | 336        |
+| Value Range        | -10.77~34.25 | 0.143~9.415|
+| Learning Rate      | 0.01         | 0.01       |
+| Epochs             | 200          | 200        |
+| Min Error Magnitude| 0.2%         | 51%        |
+
+<br>
+![Temp_vs_Covid_Cases](assets/css/LSTM_Comparison.png) <br>
+ <br>
+
+
 ### Good for temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
@@ -73,7 +91,7 @@ Compared to its performance on the temperature dataset, the LSTM model completed
 - **Big difference in the magnitude** of daily cases betweening the training dataset and the testing dataset.<br>
 <br>
 
- ![Temp_vs_Covid_Cases](assets/css/Temp_vs_Covid_Cases.png)<br>
+![Temp_vs_Covid_Cases](assets/css/Temp_vs_Covid_Cases.png)<br>
  <br>
 
 # Fine-tuning a pretrained model
@@ -114,14 +132,8 @@ But what if there is already a model that was pretrained on millions of samples?
 
  
 
-###### Header 6
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+
 
 
 
