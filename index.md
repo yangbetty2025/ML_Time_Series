@@ -13,7 +13,7 @@ A time series is a sequence of data points that are recorded over **consistent i
 - **Noise / randomn component** <br>
 - **Stationarity** <br>
 
- ![ts_decomposition](assets/images/ts_decomposition.png)<br>
+ ![ts_decomposition](assets/css/ts_decomposition.png)<br>
  <sub> Source: [Seasonal Decomposition of Your Time-Series](http://alkaline-ml.com/pmdarima/1.8.1/auto_examples/arima/example_seasonal_decomposition.html) </sub>
  <br>
 
@@ -37,14 +37,14 @@ A time series is a sequence of data points that are recorded over **consistent i
 <br>
 - Shortly after, there were sharp increases in deaths and cases. Three epidemic waves were observed from 4/17/2022 to 3/18/2023, each seemed “flatter” than the previous.<br>
 <br>
- ![Covid_Waves_Taiwan](assets/images/Covid_Waves_Taiwan.png)<br>
+ ![Covid_Waves_Taiwan](/assets/css/Covid_Waves_Taiwan.png)<br>
 <br>
 <br>
 
 ## A tale of two countries
 Every country has a different epidemic curve for Covid-19 due to different values, policies, preventive measures, availability of vaccines, etc. The juxtaposition below is a visual representation of said differences. <br>
 <br>
- ![US_vs_Taiwan](assets/images/US_vs_Taiwan.png)<br>
+ ![US_vs_Taiwan](assets/css/US_vs_Taiwan.png)<br>
  <br>
 
 ## The research question
@@ -74,7 +74,7 @@ Compared to its performance on the temperature dataset, the LSTM model completed
 - **Big difference in the magnitude** of daily cases betweening the training dataset and the testing dataset.<br>
 <br>
 
- ![Temp_vs_Covid_Cases](assets/images/Temp_vs_Covid_Case.png)<br>
+ ![Temp_vs_Covid_Cases](assets/css/Temp_vs_Covid_Case.png)<br>
  <br>
 
 # Fine-tuning a pretrained model
