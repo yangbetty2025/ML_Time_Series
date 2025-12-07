@@ -61,23 +61,23 @@ Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machin
 ## LSTM modeling results comparison
 Due to the magnitude of Covid cases, the daily totals were "normalized" to range between 0 and 10 by dividing by 10,000 before training. The predicted results were then multiplied by 10,000 to get back to the original unit (number of cases).<be>
 
-To test the LSTM model, two different datasets were used for training: daily temperatures of Park Slope from 2010-01-01 to 2025-09-30, and daily Covid cases in Taiwan from 2022-04-17 to 2023-03-18. <br>
+To test the LSTM model, two different datasets were used for training: daily temperatures (in Celsius) of Park Slope, NY from 2010-01-01 to 2025-09-30, and daily Covid cases in Taiwan from 2022-04-17 to 2023-03-18. <br>
 <br> 
 Below is a comparison table of the two datasets on their respective sample size, range of values, training specifications, and minimum difference between predicted and actual values as a percentage of the actual value.<br>
 <br>
 
-|                    | Temperature  | Covid Cases|
-|:-------------------|:-------------|:-----------|
-| No. of Samples     | 5,752        | 336        |
-| Value Range        | -10.77~34.25 | 0.143~9.415|
-| Learning Rate      | 0.01         | 0.01       |
-| Epochs             | 200          | 200        |
-| Min Error Magnitude| 0.2%         | 51%        |
+|                    | Temperature    | Covid Cases  |
+|:-------------------|:---------------|:-------------|
+| No. of Samples     | 5,752          | 336          |
+| Value Range        | -10.77 ~ 34.25 | 0.14 ~ 9.41  |
+| Learning Rate      | 0.01           | 0.01         |
+| Epochs             | 200            | 200          |
+| Min Error Magnitude| 0.2%           | 51%          |
 
 <br>
 <br>
 
-### Good for temperatures but not for Covid cases?
+### Good for predicting temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
 ![Temp_vs_Covid_Cases](assets/css/LSTM_Comparison.png) <br>
@@ -99,8 +99,9 @@ Conceptually, one can copy and paste the small dataset, say, 100 times to create
 <br>
 But what if there is already a model that was pretrained on millions of samples? Would the pretrained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
 <br>
+<br>
 
-## Chronos fine-tuning specification
+## Amazon Chronos fine-tuning specification
 
 <br>
 
