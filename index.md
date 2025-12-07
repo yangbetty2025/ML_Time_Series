@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-# Time Series Modeling in Machine Learning
+<title> Time Series Modeling in Machine Learning
+
 # What is a time series?
 A time series is a sequence of data points that are recorded over **consistent intervals** of time. Examples include hourly or daily temperature data, monthly credit card charges, and the annual GDP growth rates. <br>
 <br>
@@ -83,7 +84,7 @@ Compared to its performance on the temperature dataset, the LSTM model completed
 ![Temp_vs_Covid_Cases](assets/css/LSTM_Comparison.png) <br>
  <br>
 
-## Reasons for the poor performance
+## Reasons for poor performance on Covid cases prediction
 - **Dataset is too small** (only 336 observations). The five-layer LSTM model used in this study has over 17,425 parameters, and a general rule of thumb for neural networks is to have at least 10 to 20 samples per parameter.<br>
 <br>  
 - **Not enough repeated patterns**. Without repeated patterns, the "long-term memory" component of LSTM offers little value.<br>
@@ -126,6 +127,8 @@ But what if there is already a model that was pretrained on millions of samples?
 
 * * *
 # Resources
+- [Temp_11215.csv](assets/css/Temp_11215.csv) dataset <br>
+- [Covid_Cases_20231011.csv]dataset <br>
 - [LSTM Time Series Forecasting Tutorial in Python](https://www.youtube.com/watch?v=c0k-YLQGKjY)<br>
 - [Install Chronos AI Models for Time Series Forecasting](https://www.youtube.com/watch?v=WxazoCVkBhg)<br>
 - [Amazon Chronos-T5 (Tiny)](https://huggingface.co/amazon/chronos-t5-tiny) <br>
