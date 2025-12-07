@@ -74,7 +74,7 @@ Compared to its performance on the temperature dataset, the LSTM model completed
 - **Big difference in the magnitude** of daily cases betweening the training dataset and the testing dataset.<br>
 <br>
 
- ![Temp_vs_Covid_Cases](assets/css/Temp_vs_Covid_Case.png)<br>
+ ![Temp_vs_Covid_Cases](assets/css/Temp_vs_Covid_Cases.png)<br>
  <br>
 
 # Fine-tuning a pretrained model
