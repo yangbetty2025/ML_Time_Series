@@ -145,7 +145,6 @@ Conceptually, one can copy and paste the small dataset, say, 100 times to create
 <br>
 So, what if there is already a model that was pretrained on millions of samples? Would the pretrained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
 <br>
-<br>
 
 ## Amazon Chronos fine-tuning specification
 
@@ -162,15 +161,22 @@ So, what if there is already a model that was pretrained on millions of samples?
 
 ## Results 
 
+![Chronos_Plot](assets/css/Chronos_Plot.png)<br>
 
+ <br>
+ 
+![Chronos_Results](assets/css/Chronos_Results.png)<br>
+ <br>
 
 # Key takeaways
 
 # Future research
+1. Multivariable model in which Covid cases, temperature, vaccination rate would be used to predict Covid deaths. <br>
+<br>
+2. Adding sine and cosine functions can be added to further remove seasonality for datasets with many repeated pattern, such as the temperature data. <br>
 <br>
 <br>
 
-* * *
 # Resources
 - [Temp_11215.csv](assets/css/Temp_11215.csv) <br>
 - [Daily_Covid_Cases_Taiwan.csv](assets/css/Daily_Covid_Cases_Taiwan.csv) <br>
