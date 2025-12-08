@@ -6,7 +6,6 @@ layout: default
 A time series is a sequence of data points that are recorded over **consistent intervals** of time. Examples include hourly or daily temperature data, monthly credit card charges, and the annual GDP growth rates. <br>
 <br>
 Time series modeling is frequently used in **finance** (e.g., stock market forecasting), **economics** (e.g., inflation or CPI projections), **business** (e.g., monthly sales or inventory analysis), **climatology** (e.g. El Niño cycles and global warming trend detection), **health** (e.g. patient vitals or disease outbreak monitoring), and many fields in **science**. <br>
-<br>
 
 ## Key characteristics
 - **Trend** <br>
@@ -24,13 +23,11 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 - **Missing values and random fluctuations** require data imputation or noise filtering. <br>
 - **Non-stationarity and heteroskedasticity** require transformations like differencing or decomposition for the former, and log transformation for the latter.  <br>
 - **Structural breaks** or regime changes when there are sudden shifts in the underlying pattern. <br>
-<br>
 
 ## Examples of helpful uses for our everyday life
 - **Forecasting** of future events and trends allows for better planning and more efficient risk management or mitigation strategies. For instance, use of weather and traffic forecasts to plan trips.<br>
 - **Pattern recognition** helps earlier diagnosis and focused treatment. <br>
 - **Anomaly detection** uncovers fradulent credit card charges or suspicious bank activities. <br>
-<br>
 <br>
 
 ## What makes time series different from "regular" data?
@@ -50,7 +47,6 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 - **Newer machine learning methods** include tree-based models (**random forest**, **XGBoost**) that can capture complex interactions.<br>
 <br>
 - **Newer deep learning methods** include long short-term memory (**LSTM**) and convolutional neural networks (**CNN**), and Transformers, which is increasingly used in time series for long-range dependencies.<br>
-<br>
 <br>
 
 # Case study: predicting Covid-19 cases in Taiwan
@@ -235,15 +231,16 @@ The line plot below shows the actual number of Covid cases in orange, while the 
 
 ![Chronos_Plot](assets/css/Chronos_Plot.png)<br>
  <br>
-<br>
 
 # Key takeaways
+1. <br>
 
 # Future research
-1. Multivariable model in which Covid cases, temperature, vaccination rate would be used to predict Covid deaths. <br>
-<br>
-2. Adding sine and cosine functions can be added to further remove seasonality for datasets with many repeated pattern, such as the temperature data. <br>
-<br>
+1. Fine-tuning Chronos with a larger dataset (> 1,000 samples) of daily Covid cases in Taiwan (from the 2020-01-22 to 2023-06-01) where the majority of the time series consists of very low numbers of cases. 
+
+2. Conducting a multivariable statistics model (such as Vector Autoregression) in which Covid cases, temperature, vaccination rate could be used to predict Covid deaths. <br>
+
+3. Adding sine and cosine functions to further remove seasonality for datasets with many repeated pattern, such as the temperature data. <br>
 <br>
 
 # Resources
@@ -252,4 +249,3 @@ The line plot below shows the actual number of Covid cases in orange, while the 
 - [LSTM Time Series Forecasting Tutorial in Python](https://www.youtube.com/watch?v=c0k-YLQGKjY)<br>
 - [Install Chronos AI Models for Time Series Forecasting](https://www.youtube.com/watch?v=WxazoCVkBhg)<br>
 - [Amazon Chronos-T5 (Tiny)](https://huggingface.co/amazon/chronos-t5-tiny) <br>
-<br>
