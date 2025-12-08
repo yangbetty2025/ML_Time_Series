@@ -81,6 +81,15 @@ Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machin
 ## Advantages of LSTM models
 
 
+
+# LSTM model setup
+Predict Covid cases using Covid cases from the past 5 days
+The input-output matrix would look like this: <br>
+[Mon, Tue, Wed, Thu, Fri][Sat] <br>
+[Tue, Wed, Thu, Fri, Sat][Sun] <br>
+[Wed, Thu, Fri, Sat, Sun][Mon] <br>
+
+
 ## LSTM modeling results comparison
 Due to the magnitude of Covid cases, the daily totals were "normalized" to range between 0 and 10 by dividing by 10,000 before training. The predicted results were then multiplied by 10,000 to get back to the original unit (number of cases).<be>
 
@@ -93,9 +102,10 @@ Below is a comparison table of the two datasets on their respective sample size,
 |:-------------------|:---------------|:-------------|
 | No. of Samples     | 5,752          | 336          |
 | Value Range        | -10.77 ~ 34.25 | 0.14 ~ 9.41  |
-| Learning Rate      | 0.01           | 0.01         |
+| Learning Rate      | 0.01           | 1.0          |
 | Epochs             | 200            | 200          |
-| Min Error Magnitude| 0.2%           | 51%          |
+| Min Error Magnitude| 0.4%           | 14%          |
+| Max Error Magnitude| 21%            | 88%          |
 
 <br>
 <br>
