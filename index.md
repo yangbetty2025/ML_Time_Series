@@ -52,7 +52,7 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 
 - **Newer machine learning methods** include tree-based models (**random forest**, **XGBoost**) that can capture complex interactions.<br>
 
-- **Newer deep learning methods** include long short-term memory (**LSTM**) and convolutional neural networks (**CNN**), and Transformers, which is increasingly used in time series for long-range dependencies.<br>
+- **Newer deep learning methods** include long short-term memory (**LSTM**), a type of recurrent neural network (RNN),  convolutional neural networks (**CNN**), and **Transformers**, which is increasingly used in time series for long-range dependencies.<br>
 <br>
 
 # Case study: predicting Covid-19 cases in Taiwan
@@ -72,23 +72,31 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 Every country has a different epidemic curve for Covid-19 due to different values, policies, preventive measures, availability of vaccines, etc. The juxtaposition below is a visual representation of said differences. <br>
 
 ![US_vs_Taiwan](assets/css/US_vs_Taiwan.png)<br>
- 
+  <sub> Source: [Johns Hopkins University ](https://coronavirus.jhu.edu/region/united-states) </sub>
+ <br>
 
 ## The research question
 Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machine learning methods forecast Covid cases in Taiwan? <br>
 <br>
 
-# Training a LSTM model from scratch
+# Training a Long Short-Term Memory (LSTM) model from scratch
 
 ## What is a LSTM model?
+[Long Short-Term Memory](https://www.geeksforgeeks.org/deep-learning/deep-learning-introduction-to-long-short-term-memory/) (LSTM) models are an enhanced version of the Recurrent Neural Network (RNN) that can simultaneously capture both long and short-term dependencies in sequential data. They are often used for tasks like language translation, speech recognition, music generation, image captioning, and **time series forecasting**.<br> 
+
+Unlike traditional RNNs which use a single hidden layer passed through time, LSTMs are equipped with a memory cell that holds information over extended periods to overcome the challenge of learning long-term dependencies.<br>
 
 ## Advantages of LSTM models
+RNNs often encounter issues with either **vanishing gradient** or **exploding gradient**. The former refers how the gradients which help the model learn can shrink over time as they pass through many steps, rendering earlier information almost irrelevant. In contrast, exploding gradients can grow too large over time, causing instability. When information from distant time steps "explodes", it is difficult for the model to learn properly and produce accurate and reliable predictions. <br>
 
+LSTM's advantages lie in its architecture which includes not only the standard input and output gates, but also a **forget gate** that determines what information is removed from the memory cell. This architecture allows LSTM networks to selectively retain or discard information as it flows through the network, which allows them to **learn long-term dependencies without vanishing or exploding gradients issues**. <br>
 
+![LSTM_Input_Ouput](assets/css/LSTM_IO.png)
+ <sub> Source: [What is LSTM - Long Short Term Memory?](https://www.geeksforgeeks.org/deep-learning/deep-learning-introduction-to-long-short-term-memory/) </sub>
+<br>
 
 ## LSTM model setup
-Predict Covid cases using Covid cases from the past 5 days
-The input-output matrix would look like this: <br>
+In this study, the LSTM model was trained to predict the daily Covid cases using Covid cases from the past 5 days, which is the window for short-term memory. Conceptually, the input-output matrix looks like this: <br>
 
 | Input      | Output| 
 |:-----------|:------|
@@ -108,7 +116,7 @@ Or, if it is easier to conceptualize in terms of day of the week:<br>
 
 <br>
 
-## LSTM modeling results comparison
+## LSTM modeling results comparison: Temperatures vs. Covid Cases
 Due to the magnitude of Covid cases, the daily totals were "normalized" to range between 0 and 10 by dividing by 10,000 before training. The predicted results were then multiplied by 10,000 to get back to the original unit (number of cases).<be>
 
 To test the LSTM model, two different datasets were used for training: daily temperatures (in Celsius) of Park Slope, NY from 2010-01-01 to 2025-09-30, and daily Covid cases in Taiwan from 2022-04-17 to 2023-03-18. <br>
@@ -120,6 +128,7 @@ Below is a comparison table of the two datasets on their respective sample size,
 |:---------------------|:---------------|:--------------|
 | No. of Samples       | 5,752          | 336           |
 | Predicted Value Range| 19.24 ~ 22.42  | 12,330        |
+| Window Size          | 5              | 5             |
 | Learning Rate        | 0.01           | 1.0           |
 | Epochs               | 200            | 200           |
 | Min Error Magnitude  | 0.4%           | 21%           |
@@ -221,6 +230,7 @@ It is apparant that fine-tuning of Chronos outperforms training a LSTM model wit
 |:---------------------|:--------------------|:---------------|
 | No. of Samples       | 326                 | 336            |
 | Predicted Value Range| 7,957 ~ 9,776       | 12,330         |
+| Window Size          | na                  | 5              |
 | Learning Rate        | na                  | 1.0            |
 | Epochs               | na                  | 200            |
 | Min Error Magnitude  | 1%                  | 21%            |
@@ -238,7 +248,11 @@ The line plot below shows the actual number of Covid cases in orange, while the 
  <br>
 
 # Key takeaways
-1. <br>
+1. Machine learning is not just an overkill, but rather the wrong tool altogether for small datasets, as its strength lies in modeling large, complex datasets. For smaller datasets, traditional statistical methods outperform machine learning models.<br>
+
+2. Time series data with drasticly different magnitude and few repeated patterns pose a modeling challenge in that the training dataset does not bear any resemblance to the validation and test datasets.<br>
+
+3. Despite the risk of getting broken links and missing packages, pre-trained models trained on a large collection of diverse data may outperform task-specific models trained from scratch. <br>
 
 # Future research
 1. Fine-tuning Chronos with a larger dataset (> 1,000 samples) of daily Covid cases in Taiwan (from the 2020-01-22 to 2023-06-01) where the majority of the time series consists of very low numbers of cases. 
