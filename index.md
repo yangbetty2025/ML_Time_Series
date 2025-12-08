@@ -43,7 +43,6 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 | Analysis             | Specialized models| Standard regression  | 
 
 <br>
-<br>
 
 ## Ways to model time series in machine learning
 - **Traditional methods** include 
@@ -126,8 +125,8 @@ Below is a comparison table of the two datasets on their respective sample size,
 ### Good for predicting temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
-![LSTM_Comparison](assets/css/LSTM_Comparison.png) <br>
- <br>
+INSERT IMAGE HERE <br>
+<br>
 
 ## Reasons for poor performance on Covid cases prediction
 - **Dataset is too small** (only 336 observations). The five-layer LSTM model used in this study has over 17,425 parameters, and a general rule of thumb for neural networks is to have at least 10 to 20 samples per parameter.<br>
