@@ -125,7 +125,7 @@ Below is a comparison table of the two datasets on their respective sample size,
 ### Good for predicting temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
-INSERT IMAGE HERE <br>
+![LSTM_Comparison](assets/css/LSTM_Comparison.png)<br> <br>
 <br>
 
 ## Reasons for poor performance on Covid cases prediction
@@ -145,7 +145,9 @@ Conceptually, one can copy and paste the small dataset, say, 100 times to create
 So, what if there is already a model that was pretrained on millions of samples? Would the pretrained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
 <br>
 
-## Amazon Chronos fine-tuning specification
+## Amazon Chronos 
+
+## Chronos fine-tuning specification
 
 <br>
 
