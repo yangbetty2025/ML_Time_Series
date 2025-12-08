@@ -257,7 +257,7 @@ Fine-tuning Chronos outperforms training an LSTM model on a small dataset consis
 <br>
 The table below shows the 10%, 50% (median), and 90% percentile predictions by Chronos. The median predictions offer the best results, with the minimum percentage difference between predicted and actual values at 1%, while the maximum was 37%. <br>
 
-![Chronos_Results](assets/css/Chronos_Results.png)  <br>
+!INSERT IMAGE HERE<br>
  <br>
 
 The line plot below shows that the actual number of Covid cases in orange, while the predicted values at 10%, 50%, and 90% percentiles are shown in different shades of blue. The plot illustrates the actual number of cases falls well within the 80% Prediction Interval, or the area between the light blue and dark blue lines. <br>
