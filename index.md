@@ -44,9 +44,14 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 
 <br>
 
-## Ways to model time series in machine learning
-- **Traditional methods** include 
-- **Newer methods**
+## Ways to model time series
+- **Traditional (statistical) methods** include **ARIMA** (AutoRegressive Integrated Moving Average) and **VAR** (Vector Autoregression). The former models data with trends/seasonality by differencing to make it stationary and is effective for univariate, linear data. The latter is a multivariable extension of ARIMA for multiple related series. <br>
+<br>
+- **Newer machine learning methods** include tree-based models (**random forest**, **XGBoost**) that can capture complex interactions.<br>
+<br>
+- **Newer deep learning methods** include long short-term memory (**LSTM**) and convolutional neural networks (**CNN**), and Transformers, which is increasingly used in time series for long-range dependencies.<br>
+<br>
+<br>
 
 # Case study: predicting Covid-19 cases in Taiwan
 ## Background
@@ -120,9 +125,8 @@ Below is a comparison table of the two datasets on their respective sample size,
 | Max Error Magnitude  | 21%            | 54%           |
 
 <br>
-<br>
 
-### Good for predicting temperatures but not for Covid cases?
+## Good for predicting temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
 ![LSTM_Comparison](assets/css/LSTM_Comparison.png)<br> <br>
@@ -139,29 +143,77 @@ Compared to its performance on the temperature dataset, the LSTM model completed
 ![Temp_vs_Covid_Cases](assets/css/Temp_vs_Covid_Cases.png)<br>
  <br>
 
-# Fine-tuning a pretrained model
+# Fine-tuning a pre-trained model
 Conceptually, one can copy and paste the small dataset, say, 100 times to create artificial repeated patterns and see if the model does any better. However, this can create other modeling and analysis issues. <br>
 <br>
-So, what if there is already a model that was pretrained on millions of samples? Would the pretrained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
+So, what if there is already a model that was pretrained on millions of samples? Would a pre-trained model perform better than the LSTM model if the study's small dataset is provided as the context for fine-tuning? <br>
 <br>
 
 ## Amazon Chronos 
+[Amazon Chronos](https://www.amazon.science/code-and-datasets/chronos-learning-the-language-of-time-series) is a group of pre-trained time series forecasting models based on transformer architecture (similar to Large Language Models for text) that predicts future data points (like temperature and sales data) by transforming numbers into a sequence of tokens via scaling and quantization. <br>
 
-## Chronos fine-tuning specification
-
+Pre-trained on massive, diverse datasets, Chronos promises to deliver reliable forecasts for data from different fields without any prior training. By converting numerical data into sequences, it allows standard language model architectures to find complex patterns for forecasting. <br> 
 <br>
 
-<br>
+## Chronos-T5 (Tiny) fine-tuning specification
+Chronos-T5 (Tiny) has 8M parameters. To perform inference with Chronos models, first install the package in the GitHub companion repo by running:<br>
 
 ```python
 !pip install git+https://github.com/amazon-science/chronos-forecasting.git
 ```
+Then, import the necessary libraries:<br>
 
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import torch
+from chronos import ChronosPipeline
+```
+Next, specify the pipeline: <br>
 
-<br>
+```python
+pipeline = ChronosPipeline.from_pretrained(
+    "amazon/chronos-t5-tiny",
+    device_map="cpu",
+    torch_dtype=torch.bfloat16,
+)
+```
+
+Then, define the length of prediction and assign context to the model:<br>
+
+```python
+# Define predciton length
+prediction_length = 10
+
+# Extract NoOfCases from study_period_df (less the prediction_length) and assign to the variable Cases. 
+# The last 10 observations of actual number of cases was withheld to compare with Chronos' predicted values.
+end_index = len(study_period_df) - prediction_length
+Cases = study_period_df['NoOfCases'][:end_index]
+
+# Convert Cases to an numpy array
+Cases = torch.Tensor(Cases.to_numpy())
+
+# Assign Cases as context for pretrained model
+context = torch.tensor(Cases)
+```
+
+Next, specify forecast using context and prediction length: <br>
+
+```python
+forecast = pipeline.predict(context, prediction_length)
+```
+
+Finally, define the 10%, 50%, and 90% percentiles as low, median, and high predictions, respectively. The bounds of low and high predictions form the **80% Prediction Interval** in this study. One can change the prediciton interval by changing the percentiles. <br>
+
+```python
+low, median, high = np.quantile(forecast[0].numpy(), [0.1, 0.5,0.9], axis=0)
+```
 
 ## Results 
-Fine-tuning Chronos pretrained model 
+The table below summarizes the results from performing inference with Chronos-T5 (Tiny) pre-trained model using Taiwan's Covid cases as context. These results are compared with the forecasting performance by training a LSTM model from scratch.<br>
+
+It is apparant that fine-tuning of Chronos outperforms training a LSTM model with a small set of data consisting of 336 samples. Nevertheless, for small datasets, statistical methods generally outperforms machine learning methods whose forte is modeling large, complex data. <br>  
 <br>
 
 | Covid Cases          | Chronos Fine-Tuning | LSTM Training  |
@@ -174,15 +226,16 @@ Fine-tuning Chronos pretrained model
 | Max Error Magnitude  | 37%                 | 54%            |
 
 <br>
+The table below show the 10%, 50% (median), and 90% percentile predictions by Chronos. The median predictions offer the best results, as the minimum difference between predicted and actual values as a percentage of actual values was as low as 1%, while the maximum was 37%. <br>
 
 ![Chronos_Results](assets/css/Chronos_Results.png)<br>
  <br>
 
+The line plot below shows the actual number of Covid cases in orange, while the predicted values at 10%, 50%, and 90% percentiles are shown in different shades of blue. The plot illustrates the actual number of cases falls well within the 80% Prediction Interval, or the area between light blue and dark blue lines. <br>
+
 ![Chronos_Plot](assets/css/Chronos_Plot.png)<br>
-
  <br>
-
-
+<br>
 
 # Key takeaways
 
