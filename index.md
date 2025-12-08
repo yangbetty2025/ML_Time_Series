@@ -14,16 +14,6 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 
 - **Anomaly detection** uncovers fraudulent credit card charges or suspicious bank activities. <br>
 
-## What makes time series different from "regular" data?
-
-
-|                      | Time Series       | "Regular" Data       |
-|:---------------------|:------------------|:----------------------
-| Order & Time         | Essential         | Unimportant usually  |   
-| Data Point Dependency| Dependent         | Independence assumed |
-| Purpose              | Forecasting       | Understanding        |
-| Analysis             | Specialized models| Standard regression  | 
-
 ## Key characteristics of time series data
 - **Trend** refers to the **long-term movement** of the data, which can be upward, downward, or flat. A good example is the stock market. Despite its ups and downs, there is an upward long-term trend.<br>  
 
@@ -40,12 +30,24 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
  <sub> Source: [Seasonal Decomposition of Your Time-Series](http://alkaline-ml.com/pmdarima/1.8.1/auto_examples/arima/example_seasonal_decomposition.html) </sub>
  <br>
 
+## What makes time series different from "regular" data?
+
+
+|                      | Time Series       | "Regular" Data       |
+|:---------------------|:------------------|:----------------------
+| Order & Time         | Essential         | Unimportant usually  |   
+| Data Point Dependency| Dependent         | Independence assumed |
+| Purpose              | Forecasting       | Understanding        |
+| Analysis             | Specialized models| Standard regression  | 
+
+
 ## Common issues with time series modeling
 - **Missing values and random fluctuations** require data imputation or noise filtering. <br>
 
 - **Non-stationarity and heteroskedasticity** require transformations like differencing or decomposition for the former, and a log transformation for the latter.  <br>
 
 - **Structural breaks** or regime changes occur when there are sudden shifts in the underlying pattern. <br>
+
 
 ## Ways to model time series
 - **Traditional (statistical) methods** include **ARIMA** (Auto-Regressive Integrated Moving Average) and **VAR** (Vector Autoregression). The former models data with trends/seasonality by differencing to make it stationary, and it is effective for univariate, linear data. The latter is a multivariable extension of ARIMA for multiple related series. <br>
@@ -248,11 +250,13 @@ The line plot below shows that the actual number of Covid cases in orange, while
  <br>
 
 # Key takeaways
-1. Machine learning is not just an overkill, but rather the wrong tool altogether for small datasets, as its strength lies in modeling large, complex datasets. For smaller datasets, traditional statistical methods outperform machine learning models.<br>
+1. Choosing the right type of model that is a "good fit" (pun intended) for the dataset is the first step towards successful modeling.<br>
 
-2. Time series data with drastically different magnitudes and few repeated patterns pose a modeling challenge in that the training dataset does not bear any resemblance to the validation and test datasets.<br>
+2. Machine learning is not just an overkill, but rather the wrong tool altogether for small datasets, as its strength lies in modeling large, complex datasets. For smaller datasets, traditional statistical methods outperform machine learning models.<br>
 
-3. Despite the risk of getting broken links and missing packages, pre-trained models trained on a large collection of diverse data may outperform task-specific models trained from scratch. <br>
+3. Time series data with drastically different magnitudes and few repeated patterns pose a modeling challenge in that the training dataset does not bear any resemblance to the validation and test datasets.<br>
+
+4. Despite the risk of getting broken links and missing packages, pre-trained models trained on a large collection of diverse data may outperform task-specific models trained from scratch. <br>
 
 # Future research
 1. Fine-tuning Chronos with a larger dataset (> 1,000 samples) of daily Covid cases in Taiwan (from 2020-01-22 to 2023-06-01), where the majority of the time series consists of very low numbers of cases. 
