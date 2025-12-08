@@ -25,14 +25,17 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 
 ## Common issues with time series modeling
 - **Missing values and random fluctuations** require data imputation or noise filtering. <br>
+
 - **Non-stationarity and heteroskedasticity** require transformations like differencing or decomposition for the former, and log transformation for the latter.  <br>
+
 - **Structural breaks** or regime changes when there are sudden shifts in the underlying pattern. <br>
 
 ## Examples of helpful uses for our everyday life
 - **Forecasting** of future events and trends allows for better planning and more efficient risk management or mitigation strategies. For instance, use of weather and traffic forecasts to plan trips.<br>
+
 - **Pattern recognition** helps earlier diagnosis and focused treatment. <br>
+
 - **Anomaly detection** uncovers fradulent credit card charges or suspicious bank activities. <br>
-<br>
 
 ## What makes time series different from "regular" data?
 
@@ -43,35 +46,33 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 | Purpose              | Forecasting       | Understanding        |
 | Analysis             | Specialized models| Standard regression  | 
 
-<br>
 
 ## Ways to model time series
 - **Traditional (statistical) methods** include **ARIMA** (AutoRegressive Integrated Moving Average) and **VAR** (Vector Autoregression). The former models data with trends/seasonality by differencing to make it stationary and is effective for univariate, linear data. The latter is a multivariable extension of ARIMA for multiple related series. <br>
-<br>
+
 - **Newer machine learning methods** include tree-based models (**random forest**, **XGBoost**) that can capture complex interactions.<br>
-<br>
+
 - **Newer deep learning methods** include long short-term memory (**LSTM**) and convolutional neural networks (**CNN**), and Transformers, which is increasingly used in time series for long-range dependencies.<br>
 <br>
 
 # Case study: predicting Covid-19 cases in Taiwan
 ## Background
 - Over [7 million deaths](https://data.who.int/dashboards/covid19/deaths?m49=001&n=c) and nearly [779 million cases](https://data.who.int/dashboards/covid19/cases?m49=001&n=c) from COVID-19 have been recorded globally as of November 2025.<br>
-<br>
+
 - Taiwan’s early response resulted in low numbers of cases and deaths until early 2022.<br>
-<br>
+
 - From March 2022, Taiwan gradually lifted pandemic-related restrictions after reaching 79% in vaccination coverage.<br>
-<br>
+
 - Shortly after, there were sharp increases in deaths and cases. Three epidemic waves were observed from 4/17/2022 to 3/18/2023, each seemed “flatter” than the previous.<br>
 <br>
 ![Covid_Waves_Taiwan](/assets/css/Covid_Waves_Taiwan.png)<br>
 <br>
-<br>
 
 ## A tale of two countries
 Every country has a different epidemic curve for Covid-19 due to different values, policies, preventive measures, availability of vaccines, etc. The juxtaposition below is a visual representation of said differences. <br>
-<br>
+
 ![US_vs_Taiwan](assets/css/US_vs_Taiwan.png)<br>
- <br>
+ 
 
 ## The research question
 Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machine learning methods forecast Covid cases in Taiwan? <br>
