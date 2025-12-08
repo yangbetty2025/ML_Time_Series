@@ -126,7 +126,7 @@ Below is a comparison table of the two datasets on their respective sample size,
 ### Good for predicting temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
-![Temp_vs_Covid_Cases](assets/css/LSTM_Comparison.png) <br>
+![LSTM_Comparison](assets/css/LSTM_Comparison.png) <br>
  <br>
 
 ## Reasons for poor performance on Covid cases prediction
