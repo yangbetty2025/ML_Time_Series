@@ -31,6 +31,12 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
  <br>
 
 ## What makes time series different from "regular" data?
+The unique characteristics of time series data necessitate a different approach than that for typical machine learning datasets.<br> 
+
+First, due to the inherent **temporal dependency** in time series data, random splitting—which is common for other data types assumed to be independent—is inappropriate. Instead, the recommended method is a **time-based split**, where earlier observations are used to train, while later ones are unseen observations designated for testing, with the goal of matching how a time series model would be used in practice for forecasting future values.<br>
+
+Also, as a time series is a **sequence** of data points recorded over **consistent intervals** of time, any **missing time steps** or **uneven intervals** are disruptive to the sequence and will require remediation before modeling.
+Main differences that set time series data apart from “regular” data are summarized as follows:<br>
 
 
 |                      | Time Series       | "Regular" Data       |
@@ -108,7 +114,6 @@ In this study, the LSTM model was trained to predict the daily Covid cases using
 
 <br>
 Or, if it is easier to conceptualize in terms of day of the week:<br>
-<br>
 
 | Input              | Output| 
 |:-------------------|:------|
@@ -116,6 +121,13 @@ Or, if it is easier to conceptualize in terms of day of the week:<br>
 |TUE WED THU FRI SAT | SUN   | 
 |WED THU FRI SAT SUN | MON   | 
 
+<br>
+This LSTM model consists of five layers: <br>
+**Layer 1** Data type: **Sequential** <br>
+**Layer 2** Input layer: **Input** <br>
+**Layer 3** Model type: **LSTM** <br>
+**Layer 4** Action function: **ReLU** (Rectified Linear Unit)<br> 
+**Layer 5** Output layer: **Linear**<br>
 <br>
 
 ## LSTM modeling results comparison: Temperatures vs. Covid Cases
