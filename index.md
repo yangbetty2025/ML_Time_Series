@@ -81,13 +81,27 @@ Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machin
 
 
 
-# LSTM model setup
+## LSTM model setup
 Predict Covid cases using Covid cases from the past 5 days
 The input-output matrix would look like this: <br>
-[Mon, Tue, Wed, Thu, Fri][Sat] <br>
-[Tue, Wed, Thu, Fri, Sat][Sun] <br>
-[Wed, Thu, Fri, Sat, Sun][Mon] <br>
 
+| Input   | Output| 
+|:--------|:------|
+|1 2 3 4 5| 6     |
+|2 3 4 5 6| 7     | 
+|3 4 5 6 7| 8     | 
+
+<br>
+Or, if it is easier to conceptualize in terms of day of the week:<br>
+<br>
+
+| Input              | Output| 
+|:-------------------|:------|
+|MON TUE WED THU FRI | SAT   |
+|TUE WED THU FRI SAT | SUN   | 
+|WED THU FRI SAT SUN | MON   | 
+
+<br>
 
 ## LSTM modeling results comparison
 Due to the magnitude of Covid cases, the daily totals were "normalized" to range between 0 and 10 by dividing by 10,000 before training. The predicted results were then multiplied by 10,000 to get back to the original unit (number of cases).<be>
