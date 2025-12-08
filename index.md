@@ -111,14 +111,14 @@ To test the LSTM model, two different datasets were used for training: daily tem
 Below is a comparison table of the two datasets on their respective sample size, range of values, training specifications, and minimum difference between predicted and actual values as a percentage of the actual value.<br>
 <br>
 
-|                    | Temperature    | Covid Cases  |
-|:-------------------|:---------------|:-------------|
-| No. of Samples     | 5,752          | 336          |
-| Value Range        | -10.77 ~ 34.25 | 0.14 ~ 9.41  |
-| Learning Rate      | 0.01           | 1.0          |
-| Epochs             | 200            | 200          |
-| Min Error Magnitude| 0.4%           | 14%          |
-| Max Error Magnitude| 21%            | 88%          |
+|                      | Temperature    | Covid Cases   |
+|:---------------------|:---------------|:--------------|
+| No. of Samples       | 5,752          | 336           |
+| Predicted Value Range| 19.24 ~ 22.42  | 12,330        |
+| Learning Rate        | 0.01           | 1.0           |
+| Epochs               | 200            | 200           |
+| Min Error Magnitude  | 0.4%           | 21%           |
+| Max Error Magnitude  | 21%            | 54%           |
 
 <br>
 <br>
@@ -160,13 +160,28 @@ So, what if there is already a model that was pretrained on millions of samples?
 <br>
 
 ## Results 
+Fine-tuning Chronos pretrained model 
+<br>
+
+| Covid Cases          | Chronos Fine-Tuning | LSTM Training  |
+|:---------------------|:--------------------|:---------------|
+| No. of Samples       | 326                 | 336            |
+| Predicted Value Range| 7,957 ~ 9,776       | 12,330         |
+| Learning Rate        | na                  | 1.0            |
+| Epochs               | na                  | 200            |
+| Min Error Magnitude  | 1%                  | 21%            |
+| Max Error Magnitude  | 37%                 | 54%            |
+
+<br>
+
+![Chronos_Results](assets/css/Chronos_Results.png)<br>
+ <br>
 
 ![Chronos_Plot](assets/css/Chronos_Plot.png)<br>
 
  <br>
- 
-![Chronos_Results](assets/css/Chronos_Results.png)<br>
- <br>
+
+
 
 # Key takeaways
 
@@ -184,15 +199,3 @@ So, what if there is already a model that was pretrained on millions of samples?
 - [Install Chronos AI Models for Time Series Forecasting](https://www.youtube.com/watch?v=WxazoCVkBhg)<br>
 - [Amazon Chronos-T5 (Tiny)](https://huggingface.co/amazon/chronos-t5-tiny) <br>
 <br>
-
- 
-
-
-
-
-
-
-
-
-
-
