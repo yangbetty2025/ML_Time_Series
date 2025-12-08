@@ -7,7 +7,24 @@ A time series is a sequence of data points that are recorded over **consistent i
 <br>
 Time series modeling is frequently used in **finance** (e.g., stock market forecasting), **economics** (e.g., inflation or CPI projections), **business** (e.g., monthly sales or inventory analysis), **climatology** (e.g., El Niño cycles and global warming trend detection), **health** (e.g., patient vitals or disease outbreak monitoring), and many fields in **science**. <br>
 
-## Key characteristics
+## Examples of helpful uses for our everyday lives
+- **Forecasting** of future events and trends allows for better planning and more efficient risk management or mitigation strategies. For instance, using weather and traffic forecasts to plan trips.<br>
+
+- **Pattern recognition** helps with earlier diagnosis and focused treatment. <br>
+
+- **Anomaly detection** uncovers fraudulent credit card charges or suspicious bank activities. <br>
+
+## What makes time series different from "regular" data?
+
+
+|                      | Time Series       | "Regular" Data       |
+|:---------------------|:------------------|:----------------------
+| Order & Time         | Essential         | Unimportant usually  |   
+| Data Point Dependency| Dependent         | Independence assumed |
+| Purpose              | Forecasting       | Understanding        |
+| Analysis             | Specialized models| Standard regression  | 
+
+## Key characteristics of time series data
 - **Trend** refers to the **long-term movement** of the data, which can be upward, downward, or flat. A good example is the stock market. Despite its ups and downs, there is an upward long-term trend.<br>  
 
 - **Seasonality** refers to **regular, predictable** patterns that occur within a fixed period. Good examples include the Christmas season (for sales forecasting) and the summer season (for flight passenger projections). <br>
@@ -29,23 +46,6 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 - **Non-stationarity and heteroskedasticity** require transformations like differencing or decomposition for the former, and a log transformation for the latter.  <br>
 
 - **Structural breaks** or regime changes occur when there are sudden shifts in the underlying pattern. <br>
-
-## Examples of helpful uses for our everyday lives
-- **Forecasting** of future events and trends allows for better planning and more efficient risk management or mitigation strategies. For instance, using weather and traffic forecasts to plan trips.<br>
-
-- **Pattern recognition** helps with earlier diagnosis and focused treatment. <br>
-
-- **Anomaly detection** uncovers fraudulent credit card charges or suspicious bank activities. <br>
-
-## What makes time series different from "regular" data?
-
-|                      | Time Series       | "Regular" Data       |
-|:---------------------|:------------------|:----------------------
-| Order & Time         | Essential         | Unimportant usually  |   
-| Data Point Dependency| Dependent         | Independence assumed |
-| Purpose              | Forecasting       | Understanding        |
-| Analysis             | Specialized models| Standard regression  | 
-
 
 ## Ways to model time series
 - **Traditional (statistical) methods** include **ARIMA** (Auto-Regressive Integrated Moving Average) and **VAR** (Vector Autoregression). The former models data with trends/seasonality by differencing to make it stationary, and it is effective for univariate, linear data. The latter is a multivariable extension of ARIMA for multiple related series. <br>
