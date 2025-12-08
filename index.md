@@ -25,17 +25,15 @@ Time series modeling is frequently used in **finance** (e.g., stock market forec
 - **Non-stationarity and heteroskedasticity** require transformations like differencing or decomposition for the former, and log transformation for the latter.  <br>
 - **Structural breaks** or regime changes when there are sudden shifts in the underlying pattern. <br>
 <br>
-<br>
 
-# Examples of helpful uses for our everyday life
+## Examples of helpful uses for our everyday life
 - **Forecasting** of future events and trends allows for better planning and more efficient risk management or mitigation strategies. For instance, use of weather and traffic forecasts to plan trips.<br>
 - **Pattern recognition** helps earlier diagnosis and focused treatment. <br>
 - **Anomaly detection** uncovers fradulent credit card charges or suspicious bank activities. <br>
 <br>
 <br>
 
-# What makes time series different from "regular" data?
-The reason why <br>
+## What makes time series different from "regular" data?
 
 |                      | Time Series       | "Regular" Data       |
 |:---------------------|:------------------|:----------------------
@@ -43,10 +41,11 @@ The reason why <br>
 | Data Point Dependency| Dependent         | Independence assumed |
 | Purpose              | Forecasting       | Understanding        |
 | Analysis             | Specialized models| Standard regression  | 
+
 <br>
 <br>
 
-# Ways to model time series in machine learning
+## Ways to model time series in machine learning
 - **Traditional methods** include 
 - **Newer methods**
 
