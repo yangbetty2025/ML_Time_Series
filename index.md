@@ -44,7 +44,7 @@ Main differences that set time series data apart from “regular” data are sum
 | Order & Time         | Essential         | Unimportant usually  |   
 | Data Point Dependency| Dependent         | Independence assumed |
 | Purpose              | Forecasting       | Understanding        |
-| Analysis             | Specialized models| Standard regression  | 
+| Analysis             | Specialized models| Standard models  | 
 
 
 ## Common issues with time series modeling
@@ -104,7 +104,7 @@ LSTM's advantages lie in its architecture, which includes not only the standard 
 <br>
 
 ## LSTM model setup
-In this study, the LSTM model was trained to predict the daily Covid cases using Covid cases from the past 5 days, which is the window for short-term memory. Conceptually, the input-output matrix looks like this: <br>
+In this study, the LSTM model was trained to predict the daily Covid cases using Covid cases from the past 5 days, which is the window for short-term (working) memory. Conceptually, the input-output matrix looks like this: <br>
 
 | Input      | Output| 
 |:-----------|:------|
@@ -123,11 +123,15 @@ Or, if it is easier to conceptualize in terms of day of the week:<br>
 
 <br>
 This LSTM model consists of five layers: <br>
-**Layer 1** Data type: **Sequential** <br>
-**Layer 2** Input layer: **Input** <br>
-**Layer 3** Model type: **LSTM** <br>
-**Layer 4** Action function: **ReLU** (Rectified Linear Unit)<br> 
-**Layer 5** Output layer: **Linear**<br>
+
+- Layer **1** Data type: **Sequential** <br>
+
+- Layer **2** Input layer: **Input** <br>
+
+- Layer **3** Model type: **LSTM** <br>
+
+- Layer **4** Action function: **ReLU** (Rectified Linear Unit)<br> 
+- Layer **5** Output layer: **Linear**<br>
 <br>
 
 ## LSTM modeling results comparison: Temperatures vs. Covid Cases
@@ -253,7 +257,7 @@ Fine-tuning Chronos outperforms training an LSTM model on a small dataset consis
 <br>
 The table below shows the 10%, 50% (median), and 90% percentile predictions by Chronos. The median predictions offer the best results, with the minimum percentage difference between predicted and actual values at 1%, while the maximum was 37%. <br>
 
-![Chronos_Results](assets/css/Chronos_Results.png)<br>
+!INSERT IMAGE HERE <br>
  <br>
 
 The line plot below shows that the actual number of Covid cases in orange, while the predicted values at 10%, 50%, and 90% percentiles are shown in different shades of blue. The plot illustrates the actual number of cases falls well within the 80% Prediction Interval, or the area between the light blue and dark blue lines. <br>
