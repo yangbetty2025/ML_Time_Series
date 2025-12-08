@@ -8,11 +8,15 @@ A time series is a sequence of data points that are recorded over **consistent i
 Time series modeling is frequently used in **finance** (e.g., stock market forecasting), **economics** (e.g., inflation or CPI projections), **business** (e.g., monthly sales or inventory analysis), **climatology** (e.g. El Niño cycles and global warming trend detection), **health** (e.g. patient vitals or disease outbreak monitoring), and many fields in **science**. <br>
 
 ## Key characteristics
-- **Trend** <br>
-- **Seasonality** <br>
-- **Cyclic** <br>
-- **Noise / randomn variation** <br>
-- **Stationarity** <br>
+- **Trend** refers to the **long-term movement** of the data, which can be upward, downward, or flat. A good example is the stock market. Despite its ups and downs, there is upward long-term trend.<br>  
+
+- **Seasonality** refers to **regular, predictable** that occur within a fixed period. Good examples are the Christmas season (for sales forcasting) or summer season (for flight passenger projection). <br>
+
+- **Cyclic** fluctuations are irregular in terms of timing and duration of occurrence, such as boom and bust cycles.<br>
+
+- **Noise / randomn variation** are unpredictable variations that cannot be accounted for by the trend or seasonality.<br>
+
+- **Stationarity** is a characteristic where the statistical properties (like mean and variance) are constant over time. Many statistical models require the time series data to be "detrained" to achieve stationary before any modeling can be performed.<br>
 <br>
 
  ![ts_decomposition](assets/css/ts_decomposition.png)<br>
@@ -125,7 +129,7 @@ Below is a comparison table of the two datasets on their respective sample size,
 ## Good for predicting temperatures but not for Covid cases?
 Compared to its performance on the temperature dataset, the LSTM model completed missed the mark in predicting Covid cases in Taiwan during the study period. Why is this the case (pun intended)?<br>
 <br>
-![LSTM_Comparison](assets/css/LSTM_Comparison.png)<br> <br>
+![LSTM_Comparison](assets/css/LSTM_Comparison.png)<br>
 <br>
 
 ## Reasons for poor performance on Covid cases prediction
