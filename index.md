@@ -85,11 +85,11 @@ Given the uniqueness of Taiwan's epidemic waves of Covid-19, how well can machin
 Predict Covid cases using Covid cases from the past 5 days
 The input-output matrix would look like this: <br>
 
-| Input   | Output| 
-|:--------|:------|
-|1 2 3 4 5| 6     |
-|2 3 4 5 6| 7     | 
-|3 4 5 6 7| 8     | 
+| Input      | Output| 
+|:-----------|:------|
+|1  2  3  4 5| 6     |
+|2  3  4  5 6| 7     | 
+|3  4  5  6 7| 8     | 
 
 <br>
 Or, if it is easier to conceptualize in terms of day of the week:<br>
