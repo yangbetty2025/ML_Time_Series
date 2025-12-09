@@ -130,7 +130,8 @@ This LSTM model consists of five layers: <br>
 
 - Layer **3** Model type: **LSTM** <br>
 
-- Layer **4** Action function: **ReLU** (Rectified Linear Unit)<br> 
+- Layer **4** Activation function: **ReLU** (Rectified Linear Unit)<br> 
+
 - Layer **5** Output layer: **Linear**<br>
 <br>
 
